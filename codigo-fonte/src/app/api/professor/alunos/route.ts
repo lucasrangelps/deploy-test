@@ -88,20 +88,23 @@ export async function GET(req: NextRequest) {
     }>()
 
     for (const m of matriculas ?? []) {
-      const aluno = m.alunos as {
+      const aluno = (m.alunos as {
         id_aluno: string
-        usuarios: { nome_completo: string; email: string } | null
-      } | null
+        usuarios: {
+          nome_completo: string
+          email: string
+        }[]
+      }[] | null)?.[0]
 
-      const turma = m.turmas as { nome: string } | null
+      const turma = (m.turmas as { nome: string }[] | null)?.[0]
 
       if (!aluno) continue
 
       if (!alunosMap.has(aluno.id_aluno)) {
         alunosMap.set(aluno.id_aluno, {
           id_aluno: aluno.id_aluno,
-          nome_completo: aluno.usuarios?.nome_completo ?? '',
-          email: aluno.usuarios?.email ?? '',
+          nome_completo: aluno.usuarios?.[0]?.nome_completo ?? '',
+          email: aluno.usuarios?.[0]?.email ?? '',
           turmas: turma ? [turma.nome] : [],
         })
       } else if (turma) {
