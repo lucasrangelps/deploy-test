@@ -4,7 +4,13 @@ export { FaqItem } from './FaqItem'
 export { QuizWidget } from './QuizWidget'
 export { WhatsAppIcon } from './WhatsAppIcon'
 export { FloatingParticles } from './FloatingParticles'
-export { FieldErrorDisplay, getFieldErrors, getFormErrors } from './FieldErrorDisplay'
+export {
+  FieldErrorDisplay,
+  getFieldErrors,
+  getFormErrors
+} from './FieldErrorDisplay'
+
+export type { FieldErrors } from './FieldErrorDisplay'
 export { Toast, useToast } from './Toast'
 
 // Dashboard shared components

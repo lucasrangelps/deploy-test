@@ -3,7 +3,15 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { ChevronRight, Music } from 'lucide-react'
-import { FieldErrorDisplay, getFieldErrors, getFormErrors, Toast, useToast } from '@/components'
+import {
+  FieldErrorDisplay,
+  getFieldErrors,
+  getFormErrors,
+  Toast,
+  useToast
+} from '@/components'
+
+import type { FieldErrors } from '@/components'
 
 const ESPECIALIDADES = ['Forró', 'Zouk', 'Sertanejo', 'Dança de Salão', 'Salsa', 'Samba', 'Bachata', 'Tango', 'Funk', 'Contemporâneo']
 
@@ -49,7 +57,8 @@ export default function CadastroProfessorPage() {
   const [loading, setLoading] = useState(false)
   const [erro, setErro] = useState('')
   const [sucesso, setSucesso] = useState(false)
-  const [fieldErrors, setFieldErrors] = useState<Record<string, string[]>>({})
+  const [fieldErrors, setFieldErrors] =
+  useState<FieldErrors>({})
   const { toast, showToast, hideToast } = useToast()
 
   const [form, setForm] = useState<FormData>({

@@ -3,10 +3,9 @@
 import { AlertCircle } from 'lucide-react'
 
 // Tipo para fieldErrors: cada chave pode ter um array de strings
-interface FieldErrors {
+export interface FieldErrors {
   [key: string]: string[] | undefined
 }
-
 interface FieldErrorDisplayProps {
   errors: FieldErrors
   field?: string
