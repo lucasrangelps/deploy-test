@@ -1,0 +1,28 @@
+message: Please cite this software using these metadata.
+title: Isabel Wencces Dança de Salão e Fitness
+authors:
+  - family-names: Paula Moreira Pinto
+    given-names: Daianne
+  - family-names: Nunes Caldeira
+    given-names: Graziela
+  - family-names: Hora dos Santos
+    given-names: Jessica
+  - family-names: Moreira Pinto
+    given-names: Leticia
+  - family-names: Rangel Pereira de Sousa
+    given-names: Lucas
+  - family-names: Ribeiro Bastos
+    given-names: Rafael
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Lucia da Silva
+    given-names: Soraia
+keywords:
+  - Dança de salão
+  - Fitness
+  - Aulas de dança
+  - Saúde e bem-estar
+  - Qualidade de vida
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e5-proj-empext-t2-dancasalaowenccess
+version: 1.0.0
+date-released: 2026-03-15
