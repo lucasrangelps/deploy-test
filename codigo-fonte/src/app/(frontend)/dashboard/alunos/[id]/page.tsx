@@ -254,14 +254,14 @@ function TabAnamnese({ anamnese }: { anamnese: Anamnese | null }) {
         </div>
       </div>
 
-      {q.descricao_lesao && (
+      {typeof q.descricao_lesao === 'string' && q.descricao_lesao.trim() !== '' && (
         <div className="detail-section">
           <p className="detail-section-title">Descrição da Lesão</p>
           <p style={{ fontSize: 13, color: '#1A1A1A', lineHeight: 1.6 }}>{String(q.descricao_lesao)}</p>
         </div>
       )}
 
-      {q.observacoes && (
+      {typeof q.observacoes === 'string' && q.observacoes.trim() !== '' && (
         <div className="detail-section">
           <p className="detail-section-title">Observações</p>
           <p style={{ fontSize: 13, color: '#1A1A1A', lineHeight: 1.6 }}>{String(q.observacoes)}</p>
