@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { ArrowLeft } from 'lucide-react'
 
-export default function NovoPlanoPage() {
+function NovoPlanoContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const editId = searchParams.get('id')
@@ -182,5 +182,13 @@ export default function NovoPlanoPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function NovoPlanoPage() {
+  return (
+    <Suspense fallback={<div>Carregando...</div>}>
+      <NovoPlanoContent />
+    </Suspense>
   )
 }

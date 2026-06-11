@@ -2,7 +2,7 @@
 
 // src/app/(frontend)/area-professor/prof-publicacoes/nova/page.tsx
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useIdProfessor } from '@/hooks/useIdProfessor' // ajuste para seu hook real
 
@@ -13,7 +13,7 @@ const CATEGORIAS = [
   { value: 'dica',       label: '💃 Dica',        desc: 'Dica de dança'     },
 ]
 
-export default function ProfNovaPublicacaoPage() {
+function ProfNovaPublicacaoContent() {
   const router       = useRouter()
   const params       = useSearchParams()
   const editId       = params.get('id')
@@ -193,5 +193,13 @@ export default function ProfNovaPublicacaoPage() {
         </button>
       </div>
     </div>
+  )
+}
+
+export default function ProfNovaPublicacaoPage() {
+  return (
+    <Suspense fallback={<div>Carregando...</div>}>
+      <ProfNovaPublicacaoContent />
+    </Suspense>
   )
 }

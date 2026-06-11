@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { ArrowLeft } from 'lucide-react'
 
@@ -13,7 +13,7 @@ type Professor = {
 const DIAS = ['Segunda', 'Terca', 'Quarta', 'Quinta', 'Sexta', 'Sabado', 'Domingo']
 const NIVEIS = ['Iniciante', 'Intermediario', 'Avancado']
 
-export default function NovaTurmaPage() {
+function NovaTurmaContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const editId = searchParams.get('id')
@@ -116,6 +116,7 @@ export default function NovaTurmaPage() {
       setLoading(false)
     }
   }
+  
 
   return (
     <div>
@@ -296,5 +297,13 @@ export default function NovaTurmaPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function NovaTurmaPage() {
+  return (
+    <Suspense fallback={<div>Carregando...</div>}>
+      <NovaTurmaContent />
+    </Suspense>
   )
 }

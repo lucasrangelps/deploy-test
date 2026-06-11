@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { ArrowLeft } from 'lucide-react'
 
-export default function NovoRitmoPage() {
+function NovoRitmoContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const editId = searchParams.get('id')
@@ -135,5 +135,13 @@ export default function NovoRitmoPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function NovoRitmoPage() {
+  return (
+    <Suspense fallback={<div>Carregando...</div>}>
+      <NovoRitmoContent />
+    </Suspense>
   )
 }
